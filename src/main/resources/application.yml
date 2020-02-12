@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        bindings:
+          input:
+            consumer:
+              enableDlq: true
+              dlqName: outputDlq
+          payload-input:
+            consumer:
+              enableDlq: true
+              dlqName: payloadDlq
+      bindings:
+        output:
+          destination: output
+          contentType: application/json
+          producer:
+            partition-count: 3
+        input:
+          group: outputGroup
+          destination: output
+          contentType: application/json
+          consumer:
+            concurrency: 3
+            partitioned: true
+            headerMode: none
+        payload-output:
+          destination: payload
+          contentType: application/json
+          producer:
+            partition-count: 3
+        payload-input:
+          group: payloadGroup
+          destination: payload
+          contentType: application/json
+          consumer:
+            concurrency: 3
+            partitioned: true
+            headerMode: none
