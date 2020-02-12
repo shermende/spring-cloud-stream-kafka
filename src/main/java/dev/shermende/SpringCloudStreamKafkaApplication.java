@@ -19,7 +19,7 @@ public class SpringCloudStreamKafkaApplication implements CommandLineRunner {
     private final MessageChannel channel;
 
     public SpringCloudStreamKafkaApplication(
-            @Qualifier("channel") MessageChannel channel
+        @Qualifier("channel") MessageChannel channel
     ) {
         this.channel = channel;
     }
