@@ -15,7 +15,7 @@ public class SinkListener {
     @StreamListener(Sink.INPUT)
     public void input(Message<?> message) {
         log.info("[Group: {}] [Partition: {}] [Payload: {}]",
-                message.getHeaders().get(GROUP), message.getHeaders().get(PARTITION), message.getPayload());
+            message.getHeaders().get(GROUP), message.getHeaders().get(PARTITION), message.getPayload());
     }
 
 }

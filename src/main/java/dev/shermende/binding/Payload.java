@@ -1,4 +1,4 @@
-package dev.shermende;
+package dev.shermende.binding;
 
 import lombok.Builder;
 import lombok.Getter;

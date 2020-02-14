@@ -1,19 +1,15 @@
 package dev.shermende;
 
-import dev.shermende.binding.PayloadFlow;
+import dev.shermende.binding.Payload;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 
 @SpringBootApplication
-@EnableBinding({Source.class, Sink.class, PayloadFlow.class})
 public class SpringCloudStreamKafkaApplication implements CommandLineRunner {
 
     private final MessageChannel channel;
@@ -25,7 +21,7 @@ public class SpringCloudStreamKafkaApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         channel.send(getMessage());
     }
 

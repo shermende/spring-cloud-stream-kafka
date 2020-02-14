@@ -1,7 +1,9 @@
-package dev.shermende.config;
+package dev.shermende;
 
 import dev.shermende.binding.PayloadFlow;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,7 @@ import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.messaging.MessageChannel;
 
 @Configuration
+@EnableBinding({Source.class, Sink.class, PayloadFlow.class})
 public class IntegrationConfiguration {
     public static final String CHANNEL = "channel";
 
@@ -21,24 +24,24 @@ public class IntegrationConfiguration {
 
     @Bean
     public IntegrationFlow sourceFlow(
-            @Qualifier(CHANNEL) MessageChannel from,
-            @Qualifier(Source.OUTPUT) MessageChannel to
+        @Qualifier(CHANNEL) MessageChannel from,
+        @Qualifier(Source.OUTPUT) MessageChannel to
     ) {
         return IntegrationFlows
-                .from(from)
-                .channel(to)
-                .get();
+            .from(from)
+            .channel(to)
+            .get();
     }
 
     @Bean
     public IntegrationFlow payloadFlow(
-            @Qualifier(CHANNEL) MessageChannel from,
-            @Qualifier(PayloadFlow.OUTPUT) MessageChannel to
+        @Qualifier(CHANNEL) MessageChannel from,
+        @Qualifier(PayloadFlow.OUTPUT) MessageChannel to
     ) {
         return IntegrationFlows
-                .from(from)
-                .channel(to)
-                .get();
+            .from(from)
+            .channel(to)
+            .get();
     }
 
 }
