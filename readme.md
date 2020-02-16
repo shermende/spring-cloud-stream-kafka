@@ -9,7 +9,6 @@ $ docker-compose up -d --build
 $ ./gradlew bootRun
 ```
 * localhost:9000 - [kafkadrop](https://github.com/obsidiandynamics/kafdrop). kafka web ui
-* localhost:9092 - kafka external listener
 
 ## References
 * [Guide](https://dzone.com/articles/spring-cloud-stream-with-kafka)
@@ -17,3 +16,4 @@ $ ./gradlew bootRun
 * [Partitioning and multithreading](https://stackoverflow.com/questions/25896109/in-apache-kafka-why-cant-there-be-more-consumer-instances-than-partitions)
 * [Spring cloud stream kafka DLQ](https://stackoverflow.com/questions/51247113/correctly-manage-dlq-in-spring-cloud-stream-kafka)
 * [Kafka DLQ explain](https://www.confluent.io/blog/kafka-connect-deep-dive-error-handling-dead-letter-queues/)
+###### Keywords: spring integration, spring cloud stream kafka
