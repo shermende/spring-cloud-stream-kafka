@@ -3,7 +3,7 @@ package dev.shermende;
 import dev.shermende.binding.PayloadFlow;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.messaging.MessageChannel;
 
 @Configuration
-@EnableBinding({Source.class, Sink.class, PayloadFlow.class})
+@EnableBinding({Processor.class, PayloadFlow.class})
 public class IntegrationConfiguration {
     public static final String CHANNEL = "channel";
 
